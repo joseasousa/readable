@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { getCategories } from '../api'
 
 class Main extends Component {
   constructor (state) {
@@ -9,11 +8,6 @@ class Main extends Component {
     }
   }
 
-  componentDidMount () {
-    getCategories()
-      .then(categories => this.setState({categories: categories.data}))
-      .catch(error => console.log(error))
-  }
   render () {
     return (
       <div>
