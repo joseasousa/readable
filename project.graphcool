@@ -1,0 +1,47 @@
+# project: cj8on5hop0dq10113o9fsdu7r
+# version: 2
+
+type User implements Node {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type File implements Node {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  contentType: String!
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  url: String! @isUnique
+}
+
+type Categories implements Node {
+  id: ID! @isUnique
+  name: String!
+  path: String!
+}
+
+type Post implements Node {
+  id: ID! @isUnique
+  timestamp: DateTime!
+  title: String!
+  body: String!
+  author: String!
+  category: String!
+  voteScore: Int!
+  deleted: Boolean @defaultValue(value: false)
+}
+
+type Comments implements Node {
+  id: ID! @isUnique
+  parentId: String!
+  timestamp: DateTime!
+  body: String!
+  author: String!
+  voteScore: Int!
+  deleted: Boolean @defaultValue(value: false)
+  parentDeleted: Boolean @defaultValue(value: false)
+}
