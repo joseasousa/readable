@@ -1,12 +1,9 @@
 import React from 'react'
-import {} from 'react-materialize'
+import Categories from '../categories'
 
-const Main = ({ data: {loading, error, allCategorieses} }) => (
+const Main = _ => (
   <div>
-    oi
-    {!loading && (
-       allCategorieses.map(ca => <h1>{ca.name}</h1>)
-      )}
+    <Categories />
   </div>
 )
 
