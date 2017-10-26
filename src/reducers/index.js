@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
-import login from './login'
+import categories from './categories'
+import client from '../client'
 
-export default combineReducers({login})
+export default combineReducers({categories, differentKey: client.reducer()})

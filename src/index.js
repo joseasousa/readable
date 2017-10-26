@@ -3,18 +3,21 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import { ApolloProvider, createNetworkInterface, ApolloClient } from 'react-apollo'
+import { ApolloProvider } from 'react-apollo'
+import client from './client'
+import reducers from './reducers'
+import { createStore, applyMiddleware } from 'redux'
 
-const networkInterface = createNetworkInterface({
-  uri: 'https://api.graph.cool/simple/v1/cj8on5hop0dq10113o9fsdu7r'
-})
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-const client = new ApolloClient({
-  networkInterface
-})
+const store = createStore(
+  reducers,
+  composeWithDevTools(),
+  applyMiddleware(client.middleware())
+)
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
+  <ApolloProvider client={client} store={store}>
     <BrowserRouter><App /></BrowserRouter>
   </ApolloProvider>,
   document.getElementById('root'))

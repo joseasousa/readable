@@ -1,13 +1,13 @@
 # project: cj8on5hop0dq10113o9fsdu7r
 # version: 2
 
-type User implements Node {
+type User @model {
   id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
 }
 
-type File implements Node {
+type File @model {
   id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -18,13 +18,13 @@ type File implements Node {
   url: String! @isUnique
 }
 
-type Categories implements Node {
+type Categories @model {
   id: ID! @isUnique
   name: String!
   path: String!
 }
 
-type Post implements Node {
+type Post @model {
   id: ID! @isUnique
   timestamp: DateTime!
   title: String!
@@ -35,7 +35,7 @@ type Post implements Node {
   deleted: Boolean @defaultValue(value: false)
 }
 
-type Comments implements Node {
+type Comments @model {
   id: ID! @isUnique
   parentId: String!
   timestamp: DateTime!
