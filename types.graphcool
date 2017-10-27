@@ -1,4 +1,4 @@
-# project: cj8on5hop0dq10113o9fsdu7r
+# projectId: cj8on5hop0dq10113o9fsdu7r
 # version: 2
 
 type User @model {

@@ -1,18 +1,18 @@
 import React from 'react'
 import {Collection, CollectionItem} from 'react-materialize'
 
-const Main = ({
+const Posts = ({
   data: {
     loading,
     error,
-    allCategorieses
+    allPosts
   } }) => (
     <div>
 
       {!loading && (
       <Collection>
-        {allCategorieses.map(ca =>
-          <CollectionItem key={ca.name}>{ca.name}</CollectionItem>
+        {allPosts.map(po =>
+          <CollectionItem key={po.id}>{po.title}</CollectionItem>
         )}
       </Collection>
       )}
@@ -20,4 +20,4 @@ const Main = ({
     </div>
 )
 
-export default Main
+export default Posts

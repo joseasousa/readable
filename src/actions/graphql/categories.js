@@ -1,7 +1,7 @@
 import { gql } from 'react-apollo'
 
 export const getAllCategoriesQuery = gql`
-query categories{
+query Categories{
   allCategorieses{
     id,
     name,
