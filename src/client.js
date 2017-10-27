@@ -1,4 +1,7 @@
-import { ApolloClient, createNetworkInterface } from 'react-apollo'
+import {
+  ApolloClient,
+  createNetworkInterface
+} from 'react-apollo'
 
 const NETWORK_INTERFACE_URL = 'https://api.graph.cool/simple/v1/cj8on5hop0dq10113o9fsdu7r'
 

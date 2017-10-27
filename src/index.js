@@ -7,8 +7,8 @@ import { ApolloProvider } from 'react-apollo'
 import client from './client'
 import reducers from './reducers'
 import { createStore, applyMiddleware } from 'redux'
-
 import { composeWithDevTools } from 'redux-devtools-extension'
+import 'antd/dist/antd.css'
 
 const store = createStore(
   reducers,
