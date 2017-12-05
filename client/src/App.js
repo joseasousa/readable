@@ -2,21 +2,22 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import createSagaMiddeware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import sagas from './sagas';
+import thunk from 'redux-thunk';
 import reducers from './reducers';
-import Main from './components/Main';
 import AppBar from './components/AppBar';
 import Posts from './components/Posts';
 import AddPost from './components/AddPost';
 
 import './App.css';
 
-const sagamiddleware = createSagaMiddeware();
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(sagamiddleware)));
 
-sagamiddleware.run(sagas);
+const store = () =>
+  createStore(
+    reducers,
+    composeWithDevTools(applyMiddleware(thunk)),
+  );
+
 
 const App = () => (
   <Provider store={store}>

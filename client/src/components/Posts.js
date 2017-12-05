@@ -4,7 +4,6 @@ import { Collection, CollectionItem } from 'react-materialize';
 import { potsRequest } from '../actions';
 import Post from './Post';
 
-
 class Posts extends React.Component {
   componentDidMount() {
     this.props.getPosts();

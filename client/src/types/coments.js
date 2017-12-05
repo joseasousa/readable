@@ -1,0 +1,6 @@
+export const COMMENTS_GET = 'COMMENTS_GET';
+export const COMMENTS_POST = 'COMMENTS_POST';
+export const COMMENTS_DEL = 'COMMENTS_DEL';
+export const COMMENTS_ADD = 'COMMENTS_ADD';
+export const COMMENTS_EDIT = 'COMMENTS_EDIT';
+
