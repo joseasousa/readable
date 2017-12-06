@@ -1,6 +1,13 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:3001/categories';
-const HEADER = { headers: { Authorization: 'Bads==dsa' } };
+const API_URL = 'http://localhost:3001';
 
-export const getCategoriesAPI = () => axios.get(URL, HEADER);
+const headers = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+  Authorization: 'pvicXidvqcXZ',
+};
+
+export const fetchCategories = () => axios.get(`${API_URL}/categories`, { headers });
+
+export const fetchCategoriesPost = category => axios.get(`${API_URL}/${category}/posts`, { headers });

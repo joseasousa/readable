@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Collection, CollectionItem } from 'react-materialize';
-import { categoriasRequest } from '../actions';
+import { getCategories } from '../actions';
 
 class Categories extends React.Component {
   componentDidMount() {
@@ -34,7 +34,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   categorie: () => {
-    dispatch(categoriasRequest());
+    dispatch(getCategories());
   },
 });
 

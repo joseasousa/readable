@@ -1,10 +1,10 @@
 import {
-  CATEGORIES_GET_CATEGORIES,
+  CATEGORIES_GET,
 } from '../types';
 
 const Categories = (state = [], action) => {
   switch (action.type) {
-    case CATEGORIES_GET_CATEGORIES:
+    case CATEGORIES_GET:
       return action.payload;
     default:
       return state;

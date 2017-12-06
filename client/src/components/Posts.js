@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Collection, CollectionItem } from 'react-materialize';
-import { potsRequest } from '../actions';
+import { getPosts } from '../actions';
 import Post from './Post';
 
 class Posts extends React.Component {
@@ -37,7 +37,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getPosts: () => {
-    dispatch(potsRequest());
+    dispatch(getPosts());
   },
 });
 
