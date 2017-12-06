@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Collection, CollectionItem } from 'react-materialize';
 import { categoriasRequest } from '../actions';
 
 class Categories extends React.Component {
@@ -14,11 +13,11 @@ class Categories extends React.Component {
       <div>
         {
           !isFetching && (
-            <Collection>
+            <ul className="collection" >
               {categorias.map(cate => (
-                <CollectionItem key={cate.name}>{cate.name}</CollectionItem>
+                <li className="collection-item" key={cate.name}>{cate.name}</li>
             ))}
-            </Collection>
+            </ul>
           )
         }
       </div>

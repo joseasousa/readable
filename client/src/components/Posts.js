@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Collection, CollectionItem } from 'react-materialize';
 import { potsRequest } from '../actions';
 import Post from './Post';
 
@@ -16,13 +15,13 @@ class Posts extends React.Component {
       <div>
         {
           !isFetching && (
-            <Collection>
+            <ul className="collection">
               {posts.map(post => (
-                <CollectionItem key={post.id}>
+                <li className="collection-item" key={post.id}>
                   <Post post={post} />
-                </CollectionItem>
+                </li>
             ))}
-            </Collection>
+            </ul>
           )
         }
       </div>

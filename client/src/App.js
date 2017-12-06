@@ -6,7 +6,6 @@ import createSagaMiddeware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import sagas from './sagas';
 import reducers from './reducers';
-import Main from './components/Main';
 import AppBar from './components/AppBar';
 import Posts from './components/Posts';
 import AddPost from './components/AddPost';
@@ -25,6 +24,11 @@ const App = () => (
       <div className="container">
         <Route exact path="/" render={() => (<Posts />)} />
         <Route exact path="/add" render={() => (<AddPost />)} />
+      </div>
+      <div className="fixed-action-btn horizontal">
+        <a href="/add" className="btn-floating btn-large">
+          <i className="large material-icons">add</i>
+        </a>
       </div>
     </div>
   </Provider>
