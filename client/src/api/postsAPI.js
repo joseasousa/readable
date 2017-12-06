@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:3001';
 const headers = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
-  Authorization: 'pvicXidvqcXZ',
+  Authorization: 'DSADAREcsacasraffas`2231',
 };
 
 export const pushPost = (option) => {
