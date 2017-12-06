@@ -1,22 +1,22 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getPosts } from '../actions';
+import { getCategoriesPost, getPosts } from '../actions';
 import SortPosts from './SortPosts';
 import PostList from './PostList';
 
-class Posts extends Component {
+class CategoryView extends Component {
   componentDidMount() {
     const { getPosts } = this.props;
     getPosts();
   }
 
   render() {
+    const { match } = this.props;
     return (
       <div className="container-wrapper">
         <div className="container">
-          <h1>All Posts</h1>
+          <h1>{`Showing ${match.params.category} post(s)`}</h1>
           {<SortPosts {...this.props} />}
           {<PostList {...this.props} />}
         </div>
@@ -25,21 +25,15 @@ class Posts extends Component {
   }
 }
 
-Posts.propTypes = {
+CategoryView.propTypes = {
   getPosts: PropTypes.func.isRequired,
   posts: PropTypes.array.isRequired,
-  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
-export default connect(
-  state => ({
-    posts:
-    _.filter(
-      state.posts,
-      ['deleted', false],
-    ),
-  }),
-  {
-    getPosts,
-  },
-)(Posts);
+const mapStateToProps = ({ categories, posts }, ownProps) => ({
+  categories,
+  posts: posts.filter(item => item.category === ownProps.match.params.category),
+});
+
+export default connect(mapStateToProps, { getCategoriesPost, getPosts })(CategoryView);

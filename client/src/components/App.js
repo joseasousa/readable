@@ -1,16 +1,15 @@
 import React from 'react';
+import '../App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CategoryView from './components/CategoryView';
-import PostDetails from './components/PostDetails';
-import Header from './components/Header';
-import Posts from './components/Posts';
-import AddPost from './components/AddPost';
-import PostEdit from './components/PostEdit';
-import AddComment from './components/AddComment';
-import CommentEdit from './components/CommentEdit';
-import NotFound from './components/NotFound';
-
-import './App.css';
+import CategoryView from './CategoryView';
+import PostDetails from './PostDetails';
+import Header from './Header';
+import Posts from './Posts';
+import AddPost from './AddPost';
+import PostEdit from './PostEdit';
+import AddComment from './AddComment';
+import CommentEdit from './CommentEdit';
+import NotFound from './NotFound';
 
 const App = () => (
   <div>

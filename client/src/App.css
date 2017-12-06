@@ -1,28 +1,562 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+html, body {
+  font-family: Roboto;
+  background: #fafafa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* HEADER ------------------- */
+nav.top-nav {
+  width: 100%;
+  height: 60px;
+  background: #f44336 ;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  display: flex;
+  justify-content: space-between;
+}
+nav.top-nav .left-top-nav {
+  padding-left: 12px;
+  display: flex;
+}
+nav.top-nav .left-top-nav a,
+.dropdown-content  {
+  font-size: 1.5em; /* 24px / 16px */
+  text-decoration: none;
+  color: white;
+  padding: 14px;
+  transition: 0.15s all ease-in-out;
+}
+ nav.top-nav ul li a i {
+    margin-top: 5px;
+  }
+nav.top-nav .left-top-nav a:hover {
+  transform: scale(1.1);
+}
+nav.top-nav ul {
+  margin: 0;
+  display: flex;
+  padding-right: 12px;
+}
+nav.top-nav ul li {
+  list-style-type: none;
+  display: flex;
+  border-left: 1px solid rgba(255, 255, 255, .25);
+}
+nav.top-nav ul li a,
+.dropdown .dropbtn {
+  font-size: 1.125em; /* 18px/16px */
+  padding: 18px 24px;
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+  transition: 0.15s all ease-in-out;
+}
+nav.top-nav ul li a:hover,
+nav.top-nav button:hover {
+  background: rgba(255, 255, 255, .25);
+}
+
+/* HEADER Dropdown ------------------- */
+.dropdown {
+    float: left;
+    overflow: hidden;
+
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+}
+
+.dropbtn {
+  height: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f44336 ;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    display: block;
+    text-align: left;
+}
+
+.show {
+    display: block;
+}
+
+/* Sort Posts ------------------- */
+.sort-posts{
+  position: absolute;
+  right: 2px;
+  top: 2em;
+  margin-right: auto;
+}
+
+.dropbtn-sort,
+.dropbtn-sort-comments {
+    background-color: inherit;
+    color: inherit;
+    padding: 5px;
+    font-size: .8em;
+    border: none;
+    cursor: pointer;
+	  border-radius: 4px;
+    border: solid #e53935 1px;
+}
+
+.dropdown-sort,
+.dropdown-sort-comments {
+    position: relative;
+}
+
+.dropdown-sort-comments {
+    display: inline-block;
+    float: right;
+}
+.dropbtn-sort-comments {
+  background-color: #e53935;
+  font-weight: 400;
+  font-size: .9em;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dropdown-content-sort {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content-sort i,
+.dropdown-content-sort a {
+    font-family: inherit;
+    cursor: pointer;
+    font-style: normal;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-sort i:hover,
+.dropdown-content-sort a:hover,
+.dropdown-sort-comments i:hover,
+.dropdown-sort-comments a:hover, {
+  background-color: #f1f1f1
+}
+
+.dropdown-sort:hover .dropdown-content-sort,
+.dropdown-sort:active .dropdown-content-sort,
+.dropdown-sort-comments:hover .dropdown-content-sort,
+.dropdown-sort-comments:active .dropdown-content-sort  {
+    display: block;
+}
+
+.dropdown-sort:hover .dropbtn-sort,
+.dropdown-sort:active .dropbtn-sort,
+.dropdown-sort-comments:hover .dropbtn-sort,
+.dropdown-sort-comments:active .dropbtn-sort, {
+	-webkit-transition: border-radius 1s;
+	transition: border-radius 1s;
+	border-radius: 4px 4px 0 0;
+  color: white;
+  background-color: #e53935;
+}
+
+/* Content ------------------- */
+.container-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  position: relative;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  max-width: 900px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.post-container, .comment-adjustments { width: 100%;}
+
+
+
+.form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+.form-content-container,
+.form-content-button  {
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 0;
+}
+.form-content-container {
+  width: 80%;
+}
+
+
+.form-content-button {
+  width: 100%;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+textarea {
+  height: 8em;
+}
+
+select {
+  height: 35px;
+}
+
+.error {
+  font-weight: 500;
+  color: #e53935;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 1.7rem;
+
+}
+
+.error-btn,
+.error-btn:hover
+.error-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.error i {
+  padding-right: 8px;
+}
+
+
+.btn a,
+.btn-comment-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-404{
+  width: 50%;
+}
+
+.a-404{
+  text-decoration: none;
+  color:inherit;
+  margin: auto;
+}
+.a-404 h3 {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.a-404:hover{
+  color: #e53935;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+
+.a-404 i {
+  font-size: 4rem;
+
+}
+
+.container-404 {
+  width: 100%;
+  text-align: center;
+}
+
+.a-404 i:first-of-type {
+  margin-right: 25px;
+}
+
+button[type=submit], button[type=reset], button[type=button] {
+    background-color: #e53935;
+    font-weight: 400;
+    font-size: .9em;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type=submit]:disabled,
+button[type=reset]:disabled,
+button[type=button]:disabled,
+button[type=submit]:hover:disabled,
+button[type=reset]:hover:disabled,
+button[type=button]:hover:disabled  {
+  background-color: #e53935;
+  border: none;
   color: white;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-.App-title {
-  font-size: 1.5em;
+.btn-comment-link {
+  margin-bottom: 20px;
+  margin-right: 0;
+  margin-left: auto;
+  float: right;
+
 }
 
-.App-intro {
-  font-size: large;
+button[type=submit]:hover,
+button[type=reset]:hover,
+button[type=button]:hover {
+    background-color: inherit;
+    border: solid 1px #e53935;
+    color: inherit;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+/* Post ------------------- */
+.post {
+  display: flex;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+
+
+/* Post Vote component ------------------- */
+.vote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  font-size: 18px;
+  background: white;
+  color: #424242;
+  width: 10%;
+}
+.vote-container i {
+  font-size: 22px;
+  color: #bdbdbd;
+}
+.vote-container i:hover {
+  color: #f44336 ;
+}
+
+
+/* Post Content ------------------- */
+.post-content-container {
+  width: 80%;
+  display: flex;
+  padding: 15px 5px 0;
+  justify-content: center;
+  flex-direction: column;
+}
+.post-content-container h2 {
+  font-weight: 500;
+  color: #424242;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.post-content-container .post-content-info {
+  margin: 0;
+  font-size: .875rem;
+}
+
+.post-content-container .post-content-info,
+.post-content-container p {
+  font-weight: 300;
+}
+
+.post-content-container a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-content-container a:hover,
+.post-content-clickable:hover {
+  color: #e53935;
+}
+
+
+/* Post footer ------------------- */
+.post-footer {
+  margin-top: 10px;
+}
+
+.post-footer ul {
+  border-top: 1px solid rgba(0, 0, 0, .12);
+  display: inline-block;
+  list-style-type: none;
+  min-width: 90%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+.post-footer li {
+  float: left;
+  font-size: 1rem;
+  color: #424242;
+  display: block;
+  margin: 0;
+  padding: 2px;
+
+}
+
+.post-footer li:hover,
+.post-footer li .fa:hover {
+  color: #e53935;
+  cursor: pointer;
+}
+
+.post-footer li a,
+.post-footer li .trashCan {
+  display: block;
+  color: #222;
+  text-align: right;
+  padding: 5px 0 0 5px;
+  text-decoration: none;
+}
+
+/* Post Message ------------------- */
+.message-wrapper,
+.message-wrapper-redirect-non {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #424242;
+  border-left: 1px solid rgba(0, 0, 0, .12);
+  transition: 0.15s all ease-in-out;
+}
+.message-wrapper:hover {
+  background-color: #f44336 ;
+  color: white;
+  cursor: pointer;
+}
+
+.message-wrapper a i,
+.message-wrapper-redirect-non i {
+  font-size: 2em; /* 32 px / 16px */
+}
+
+.message-wrapper a,
+.message-wrapper {
+  text-decoration: none;
+  color: inherit;
+
+}
+.comment-count {
+  font-size: 1em;
+  display: block;
+  text-align: center;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Media Query ------------------- */
+
+@media (max-width: 768px) {
+  .container{
+    width: 90%;
+  }
+
+    .dropbtn-sort {
+    font-size: .9em;
+  }
+  .dropdown-content-sort {
+    font-size: .8em;
+    text-align: right;
+    min-width: 150px;
+    right:0;
+  }
+
+
+  nav.top-nav ul li a,
+  .dropdown .dropbtn {
+    font-size: 1rem;
+  }
+
+  .message-wrapper a i {
+    font-size: 1.5em;
+  }
+
+    .post-content-container p {
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .container{
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+
+  h2 {
+    font-size: 1.25rem;
+  }
+   .message-wrapper i {
+    font-size: 1em;
+  }
+  .post-content-container p {
+    font-size: .6rem;
+  }
 }

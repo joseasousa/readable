@@ -1,2 +1,3 @@
-export * from './categorias';
+export * from './categories';
 export * from './posts';
+export * from './coments';
